@@ -41,3 +41,9 @@ CASE
 END 
 FROM BST 
 ORDER BY N
+--New Companies
+select C.*,Count(DISTINCT lead_manager_code) AS #leads,COUNT( DISTINCT senior_manager_code) AS #seniors,Count(DISTINCT manager_code)as #managers, Count(DISTINCT employee_code) as #emp
+from  Company C Join Employee  L on C.company_code =L.company_code
+
+Group by C.company_code,C.founder
+order by C.company_code
